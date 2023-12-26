@@ -228,9 +228,11 @@ class Ui_addWindow(MessageHandler, DatabaseController):
             self.idAddLine.clear()
             return
         
-        if self.addEmplInfoIsValid():
-            if not self.tempEmplCB.isChecked(): addAccesEndingLine = 'не ожидается' 
-            else: addAccesEndingLine = self.accesEndingLine.text()
+        if not self.addEmplInfoIsValid():
+            return
+        
+        if not self.tempEmplCB.isChecked(): addAccesEndingLine = 'не ожидается' 
+        else: addAccesEndingLine = self.accesEndingLine.text()
             
         addId = int(self.idAddLine.text().strip())
         addSN = self.secondNameLine.text().strip()
